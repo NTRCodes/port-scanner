@@ -1,8 +1,12 @@
 ﻿using System.Net.Sockets;
 
-string target = "127.0.0.1";
 int startPort = 0;
 int endPort = 65535;
+
+Console.WriteLine("If you want to scan a different target, please enter the IP address or hostname (or press Enter to use localhost):");
+string argument = Console.ReadLine() ?? "";
+
+string target = argument.Trim() != "" ? argument.Trim() : "127.0.0.1";
 
 Console.WriteLine($"Scanning {target} from port {startPort} to {endPort}...\n");
 
